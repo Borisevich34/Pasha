@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SWXMLHash
 import Alamofire
 
 class ViewController: UITableViewController {
@@ -22,9 +22,12 @@ class ViewController: UITableViewController {
                 if (error != nil) {
                     print("Error!")
                 } else {
-                    print(data!)
+
+                    let xml = SWXMLHash.parse(data!)
+                    
                 }
         }
+        
     }
 
     override func didReceiveMemoryWarning() {

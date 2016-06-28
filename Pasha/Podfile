@@ -4,6 +4,6 @@ use_frameworks!
 
 target 'Pasha' do
     pod 'Alamofire', '~> 3.4'
-    pod 'KissXML'
+    pod 'SWXMLHash', '~> 2.3.0'
 
 end

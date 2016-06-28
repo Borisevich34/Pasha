@@ -1,19 +1,15 @@
 PODS:
   - Alamofire (3.4.1)
-  - KissXML (5.0.3):
-    - KissXML/Standard (= 5.0.3)
-  - KissXML/Core (5.0.3)
-  - KissXML/Standard (5.0.3):
-    - KissXML/Core
+  - SWXMLHash (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
-  - KissXML
+  - SWXMLHash (~> 2.3.0)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  KissXML: d19dd6dc65e0dc721ba92b3077b8ebdd240f1c1e
+  SWXMLHash: 2f8c49af765718ad56020c4f875ec3ff22612f06
 
-PODFILE CHECKSUM: 729c28c4073057e7e13a4f91d0ea46fe959d1e2a
+PODFILE CHECKSUM: 94748d2e7caf6f2e563bc06718db23c2951692ac
 
 COCOAPODS: 1.0.1
