@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9BBB78C6B00F0F39C94428F6 /* Pods_Pasha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DE8524CB7D12E460270E /* Pods_Pasha.framework */; };
+		FA5297771D26CA53007EF866 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297761D26CA53007EF866 /* Channel.swift */; };
+		FA5297791D26CA62007EF866 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297781D26CA62007EF866 /* Item.swift */; };
 		FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */; };
 		FAEBFA891D1FE9DA001FD524 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA881D1FE9DA001FD524 /* ViewController.swift */; };
 		FAEBFA8C1D1FE9DA001FD524 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEBFA8A1D1FE9DA001FD524 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 		4814DE8524CB7D12E460270E /* Pods_Pasha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pasha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5402109024810A3BFF386F09 /* Pods-Pasha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasha.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pasha/Pods-Pasha.release.xcconfig"; sourceTree = "<group>"; };
 		541E2FADD148BB763BEAB3EB /* Pods-Pasha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pasha/Pods-Pasha.debug.xcconfig"; sourceTree = "<group>"; };
+		FA5297761D26CA53007EF866 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		FA5297781D26CA62007EF866 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FAEBFA831D1FE9DA001FD524 /* Pasha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pasha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAEBFA881D1FE9DA001FD524 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				FAEBFA921D1FE9DA001FD524 /* LaunchScreen.storyboard */,
 				FAEBFA951D1FE9DA001FD524 /* Info.plist */,
 				FAEBFA8D1D1FE9DA001FD524 /* Pasha.xcdatamodeld */,
+				FA5297761D26CA53007EF866 /* Channel.swift */,
+				FA5297781D26CA62007EF866 /* Item.swift */,
 			);
 			path = Pasha;
 			sourceTree = "<group>";
@@ -214,7 +220,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5297791D26CA62007EF866 /* Item.swift in Sources */,
 				FAEBFA891D1FE9DA001FD524 /* ViewController.swift in Sources */,
+				FA5297771D26CA53007EF866 /* Channel.swift in Sources */,
 				FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */,
 				FAEBFA8F1D1FE9DA001FD524 /* Pasha.xcdatamodeld in Sources */,
 			);

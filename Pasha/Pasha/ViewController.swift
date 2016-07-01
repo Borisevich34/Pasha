@@ -12,27 +12,77 @@ import Alamofire
 
 class ViewController: UITableViewController {
 
-    var channels = ["channel1", "channel2", "channel3"]
+    var channels = [Channel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Alamofire.request(.GET, "http://feeds.bbci.co.uk/news/world/rss.xml", parameters: nil)
-            .response { request, response, data, error in
-                if (error != nil) {
-                    print("Error!")
-                } else {
-
-                    let xml = SWXMLHash.parse(data!)
-                    
-                }
-        }
-        
+        updateChannels()
     }
 
+    func isRequestGood(error: NSError?, data: NSData?)-> Bool {
+        
+        if (error != nil) {
+            
+            return false
+            
+        } else {
+            
+            let xml = SWXMLHash.parse(data!)
+            
+            self.channels = [Channel](count: xml["rss"]["channel"].all.count, repeatedValue: Channel())
+            
+            for i in 0 ..< xml["rss"]["channel"].all.count {
+                
+                self.channels[i].setTittle(xml["rss"]["channel"][i]["title"].element!.text!)
+                self.channels[i].setItems(xml["rss"]["channel"][i]["item"].all.count)
+                
+                if let url = NSURL(string: xml["rss"]["channel"][i]["image"]["url"].element!.text!) {
+                    if let imageData = NSData(contentsOfURL: url) {
+                        self.channels[i].setImage(UIImage(data: imageData)!)
+                    }
+                    else {
+                        return false
+                    }
+                }
+                else {
+                    return false
+                }
+                
+                for j in 0 ..< xml["rss"]["channel"][i]["item"].all.count {
+                    
+                    self.channels[i].getItem(j).setTittle(xml["rss"]["channel"][i]["item"][j]["title"].element!.text!)
+                    //+links
+                    //+description
+                }
+            }
+            
+            self.tableView.reloadData()
+        }
+        
+        return true
+    }
+    
+    func updateChannels() {
+    
+        Alamofire.request(.GET, "http://feeds.bbci.co.uk/news/world/rss.xml", parameters: nil)
+            .response { request, response, data, error in
+                
+                if self.isRequestGood(error, data: data) == false {
+                   
+                    let alertController = UIAlertController(title: "Sorry", message:
+                        "Check you internet connection", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alertController.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.Default){(action) in self.updateChannels()})
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,11 +92,11 @@ class ViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("channel")! as UITableViewCell
         
-        cell.textLabel?.text = channels[indexPath.row]
+        cell.textLabel?.text = channels[indexPath.row].getTittle()
+        cell.imageView?.image = channels[indexPath.row].getImage()
         
         return cell
     }
-    
     
 
 }
