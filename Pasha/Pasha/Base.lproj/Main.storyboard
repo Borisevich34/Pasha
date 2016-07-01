@@ -39,6 +39,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Channels" id="Q0t-p6-epr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Twu-7B-3B6">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="refreshingControl" destination="Twu-7B-3B6" id="l06-Q5-KQ9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qp-1Q-kMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

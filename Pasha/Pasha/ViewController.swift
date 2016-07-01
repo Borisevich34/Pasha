@@ -14,10 +14,14 @@ class ViewController: UITableViewController {
 
     var channels = [Channel]()
     
+    @IBOutlet weak var refreshingControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateChannels()
+        
+        refreshingControl.addTarget(self, action: #selector(ViewController.updateChannels), forControlEvents: UIControlEvents.ValueChanged)
     }
 
     func isRequestGood(error: NSError?, data: NSData?)-> Bool {
@@ -58,6 +62,10 @@ class ViewController: UITableViewController {
             }
             
             self.tableView.reloadData()
+            
+            if refreshingControl.refreshing {
+                refreshingControl.endRefreshing()
+            }
         }
         
         return true
