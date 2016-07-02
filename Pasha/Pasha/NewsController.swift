@@ -29,10 +29,10 @@ class NewsController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("item")! as UITableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("item")! as! CustomCell
         
-        cell.textLabel?.text = channels[indexOfChannel].getItem(indexPath.row).getTitle()
-        cell.detailTextLabel?.text = channels[indexOfChannel].getItem(indexPath.row).getDescription()
+        cell.cellLabel.text = channels[indexOfChannel].getItem(indexPath.row).getTitle()
+        cell.cellSubtitle.text = channels[indexOfChannel].getItem(indexPath.row).getDescription()
         
         return cell
     }

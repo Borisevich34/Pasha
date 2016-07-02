@@ -11,6 +11,7 @@
 		FA5297771D26CA53007EF866 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297761D26CA53007EF866 /* Channel.swift */; };
 		FA5297791D26CA62007EF866 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297781D26CA62007EF866 /* Item.swift */; };
 		FAD893051D27BEA10021F7C7 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD893041D27BEA10021F7C7 /* NewsController.swift */; };
+		FAD8930B1D281E540021F7C7 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8930A1D281E540021F7C7 /* CustomCell.swift */; };
 		FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */; };
 		FAEBFA891D1FE9DA001FD524 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA881D1FE9DA001FD524 /* ViewController.swift */; };
 		FAEBFA8C1D1FE9DA001FD524 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEBFA8A1D1FE9DA001FD524 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		FA5297761D26CA53007EF866 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		FA5297781D26CA62007EF866 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FAD893041D27BEA10021F7C7 /* NewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
+		FAD8930A1D281E540021F7C7 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		FAEBFA831D1FE9DA001FD524 /* Pasha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pasha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAEBFA881D1FE9DA001FD524 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */,
 				FAEBFA881D1FE9DA001FD524 /* ViewController.swift */,
 				FAD893041D27BEA10021F7C7 /* NewsController.swift */,
+				FAD8930A1D281E540021F7C7 /* CustomCell.swift */,
 				FAEBFA8A1D1FE9DA001FD524 /* Main.storyboard */,
 				FAEBFA901D1FE9DA001FD524 /* Assets.xcassets */,
 				FAEBFA921D1FE9DA001FD524 /* LaunchScreen.storyboard */,
@@ -228,6 +231,7 @@
 				FAEBFA891D1FE9DA001FD524 /* ViewController.swift in Sources */,
 				FA5297771D26CA53007EF866 /* Channel.swift in Sources */,
 				FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */,
+				FAD8930B1D281E540021F7C7 /* CustomCell.swift in Sources */,
 				FAEBFA8F1D1FE9DA001FD524 /* Pasha.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
