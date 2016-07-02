@@ -92,13 +92,13 @@
 				FAEBFA881D1FE9DA001FD524 /* ViewController.swift */,
 				FAD893041D27BEA10021F7C7 /* NewsController.swift */,
 				FAD8930A1D281E540021F7C7 /* CustomCell.swift */,
+				FA5297761D26CA53007EF866 /* Channel.swift */,
+				FA5297781D26CA62007EF866 /* Item.swift */,
 				FAEBFA8A1D1FE9DA001FD524 /* Main.storyboard */,
 				FAEBFA901D1FE9DA001FD524 /* Assets.xcassets */,
 				FAEBFA921D1FE9DA001FD524 /* LaunchScreen.storyboard */,
 				FAEBFA951D1FE9DA001FD524 /* Info.plist */,
 				FAEBFA8D1D1FE9DA001FD524 /* Pasha.xcdatamodeld */,
-				FA5297761D26CA53007EF866 /* Channel.swift */,
-				FA5297781D26CA62007EF866 /* Item.swift */,
 			);
 			path = Pasha;
 			sourceTree = "<group>";

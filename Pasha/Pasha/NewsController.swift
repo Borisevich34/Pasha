@@ -37,4 +37,11 @@ class NewsController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if let requestUrl = NSURL(string: channels[indexOfChannel].getItem(indexPath.row).getLink()) {
+            UIApplication.sharedApplication().openURL(requestUrl)
+        }
+    }
+    
 }
