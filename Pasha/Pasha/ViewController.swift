@@ -38,7 +38,7 @@ class ViewController: UITableViewController {
             
             for i in 0 ..< xml["rss"]["channel"].all.count {
                 
-                self.channels[i].setTittle(xml["rss"]["channel"][i]["title"].element!.text!)
+                self.channels[i].setTitle(xml["rss"]["channel"][i]["title"].element!.text!)
                 self.channels[i].setItems(xml["rss"]["channel"][i]["item"].all.count)
                 
                 if let url = NSURL(string: xml["rss"]["channel"][i]["image"]["url"].element!.text!) {
@@ -55,9 +55,9 @@ class ViewController: UITableViewController {
                 
                 for j in 0 ..< xml["rss"]["channel"][i]["item"].all.count {
                     
-                    self.channels[i].getItem(j).setTittle(xml["rss"]["channel"][i]["item"][j]["title"].element!.text!)
-                    //+links
-                    //+description
+                    self.channels[i].getItem(j).setTitle(xml["rss"]["channel"][i]["item"][j]["title"].element!.text!)
+                    self.channels[i].getItem(j).setDescription((xml["rss"]["channel"][i]["item"][j]["description"].element!.text!))
+                    self.channels[i].getItem(j).setLink(((xml["rss"]["channel"][i]["item"][j]["link"].element!.text!)))
                 }
             }
             
@@ -100,11 +100,17 @@ class ViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("channel")! as UITableViewCell
         
-        cell.textLabel?.text = channels[indexPath.row].getTittle()
+        cell.textLabel?.text = channels[indexPath.row].getTitle()
         cell.imageView?.image = channels[indexPath.row].getImage()
-        
         return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let controller = segue.destinationViewController as? NewsController {
+            controller.indexOfChannel = (self.tableView.indexPathForCell((sender as! UITableViewCell))?.row)!
+                controller.channels = self.channels
+        }
+        
+    }
 
 }

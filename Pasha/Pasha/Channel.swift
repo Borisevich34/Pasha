@@ -11,24 +11,27 @@ import Foundation
 
 class Channel {
     
-    var tittle : String
+    var title : String
     var image : UIImage
     var items : [Item]?
+    var countOfItems : Int
     
     init () {
-        tittle = ""
+        title = ""
         image = UIImage()
+        countOfItems = 0
     }
     
-    func setItems (countOfItems : Int) {
-        items = [Item](count : countOfItems, repeatedValue : Item())
-        for i in 0 ..< countOfItems {
+    func setItems (countItems : Int) {
+        items = [Item](count : countItems, repeatedValue : Item())
+        for i in 0 ..< countItems {
             items![i] = Item() //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
+        countOfItems = countItems
     }
     
-    func getTittle() -> String {
-        return tittle
+    func getTitle() -> String {
+        return title
     }
     func getImage () -> UIImage {
         return image
@@ -36,9 +39,14 @@ class Channel {
     func getItem (index : Int) -> Item {
         return items![index]
     }
+    func getCountOfItems () -> Int {
+        return countOfItems
+    }
     
-    func setTittle(newTittle : String) {
-        tittle = newTittle
+    
+    
+    func setTitle(newTitle : String) {
+        title = newTitle
     }
     func setImage (newImage : UIImage) {
         image = newImage

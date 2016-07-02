@@ -20,8 +20,24 @@ class Item {
         link = ""
     }
     
-    func setTittle(string : String) {
+    func setTitle(string : String) {
         tittle = string
+    }
+    func setDescription(string : String) {
+        description = string
+    }
+    func setLink(string : String) {
+        link = string
+    }
+    
+    func getTitle() -> String {
+        return tittle
+    }
+    func getDescription() -> String {
+        return description
+    }
+    func getLink() -> String {
+        return link
     }
     
 }
