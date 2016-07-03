@@ -11,9 +11,10 @@ import SWXMLHash
 import Alamofire
 
 class NewsController: UITableViewController {
-    
-    var channels = [Channel]()
-    var indexOfChannel : Int = 0
+
+    var channel: Channel?
+//    var channels = [Channel]()
+//    var indexOfChannel : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class NewsController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channels[indexOfChannel].getCountOfItems()
+        return channel?.getCountOfItems() ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -49,8 +50,13 @@ class NewsController: UITableViewController {
 //        return cell
         
         if let cell = self.tableView.dequeueReusableCellWithIdentifier("item") as? CustomCell {
-            cell.cellLabel.text = channels[indexOfChannel].getItem(indexPath.row).getTitle()
-            cell.cellSubtitle.text = channels[indexOfChannel].getItem(indexPath.row).getDescription()
+            if let title = channel?.getItem(indexPath.row).getTitle() {
+              cell.cellLabel.text = title
+            } else {
+                cell.cellLabel.text = ""
+            }
+            cell.cellLabel.text = channel?.getItem(indexPath.row).getTitle() ?? ""
+            cell.cellSubtitle.text = channel?.getItem(indexPath.row).getDescription() ?? ""
             return cell
         } else {
             return UITableViewCell()
@@ -65,7 +71,7 @@ class NewsController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if let requestUrl = NSURL(string: channels[indexOfChannel].getItem(indexPath.row).getLink()) {
+        if let requestUrl = NSURL(string: channel?.getItem(indexPath.row).getLink() ?? "") {
             UIApplication.sharedApplication().openURL(requestUrl)
         }
     }

@@ -14,6 +14,7 @@ class ViewController: UITableViewController {
 
     var channels = [Channel]()
     var chanel2: [String]?
+    var request: Request?
     
     @IBOutlet weak var refreshingControl: UIRefreshControl!
     
@@ -21,6 +22,8 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         updateChannels()
+        
+        self.view.subviews
         
         refreshingControl.addTarget(self, action: #selector(ViewController.updateChannels), forControlEvents: UIControlEvents.ValueChanged)
     }
@@ -92,9 +95,9 @@ class ViewController: UITableViewController {
     }
     
     func updateChannels() {
-    
+        
         Alamofire.request(.GET, "http://feeds.bbci.co.uk/news/world/rss.xml", parameters: nil)
-            .response { request, response, data, error in
+            .response { [unowned self] request, response, data, error in
                 if !self.isRequestGood(error, data: data) {
                    
                     let alertController = UIAlertController(title: "Sorry", message:
@@ -131,9 +134,8 @@ class ViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let controller = segue.destinationViewController as? NewsController {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                controller.indexOfChannel = indexPath.row
-                controller.channels = self.channels
+            if let indexPath = tableView.indexPathForSelectedRow {                
+                controller.channel = self.channels[indexPath.row]
             }
 //            controller.indexOfChannel = (self.tableView.indexPathForCell((sender as! UITableViewCell))?.row)!
 //                controller.channels = self.channels
