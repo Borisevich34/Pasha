@@ -132,8 +132,12 @@ class ViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let controller = segue.destinationViewController as? NewsController {
-            controller.indexOfChannel = (self.tableView.indexPathForCell((sender as! UITableViewCell))?.row)!
+            if let indexPath = tableView.indexPathForSelectedRow {
+                controller.indexOfChannel = indexPath.row
                 controller.channels = self.channels
+            }
+//            controller.indexOfChannel = (self.tableView.indexPathForCell((sender as! UITableViewCell))?.row)!
+//                controller.channels = self.channels
         }
         
     }
