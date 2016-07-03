@@ -17,6 +17,7 @@ class NewsController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.estimatedRowHeight = 10
         
     }
     
@@ -29,13 +30,30 @@ class NewsController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("item")! as! CustomCell
-        
-        cell.cellLabel.text = channels[indexOfChannel].getItem(indexPath.row).getTitle()
-        cell.cellSubtitle.text = channels[indexOfChannel].getItem(indexPath.row).getDescription()
-        
-        return cell
+//        let cell = self.tableView.dequeueReusableCellWithIdentifier("item")
+//        if cell is CustomCell {
+//            let cell = cell as! CustomCell
+//            cell.cellLabel.text = channels[indexOfChannel].getItem(indexPath.row).getTitle()
+//            cell.cellSubtitle.text = channels[indexOfChannel].getItem(indexPath.row).getDescription()
+//            return cell
+//        } else {
+//            return UITableViewCell()
+//        }
+
+        if let cell = self.tableView.dequeueReusableCellWithIdentifier("item") as? CustomCell {
+            cell.cellLabel.text = channels[indexOfChannel].getItem(indexPath.row).getTitle()
+            cell.cellSubtitle.text = channels[indexOfChannel].getItem(indexPath.row).getDescription()
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
+    
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        let title: NSString = "djhfgsjhfgsdjhf"
+//        let attr = [NSFontAttributeName : ""]
+//        title.sizeWithAttributes()
+//    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

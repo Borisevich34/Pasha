@@ -13,6 +13,7 @@ import Alamofire
 class ViewController: UITableViewController {
 
     var channels = [Channel]()
+    var chanel2: [String]?
     
     @IBOutlet weak var refreshingControl: UIRefreshControl!
     
@@ -31,6 +32,26 @@ class ViewController: UITableViewController {
             return false
             
         } else {
+
+            
+//            if self.chanel2 != nil {
+//                let firstItem = self.chanel2![0]
+//            } else {
+//                print("Error")
+//            }
+
+            
+//            if let chanel2 = self.chanel2 {
+//                let firstItem = chanel2[0]
+//            } else {
+//                print("Error")
+//            }
+//
+//            let firstItem = self.chanel2![0]
+//            let secondItem = self.chanel2?[0]
+            //secondItem.capitalizedString
+            
+            
             
             let xml = SWXMLHash.parse(data!)
             
@@ -38,7 +59,10 @@ class ViewController: UITableViewController {
             
             for i in 0 ..< xml["rss"]["channel"].all.count {
                 
-                self.channels[i].setTitle(xml["rss"]["channel"][i]["title"].element!.text!)
+                if let text = xml["rss"]["channel"][i]["title"].element?.text {
+                    self.channels[i].setTitle(text)
+                }
+                
                 self.channels[i].setItems(xml["rss"]["channel"][i]["item"].all.count)
                 
                 if let url = NSURL(string: xml["rss"]["channel"][i]["image"]["url"].element!.text!) {
@@ -61,11 +85,7 @@ class ViewController: UITableViewController {
                 }
             }
             
-            self.tableView.reloadData()
-            
-            if refreshingControl.refreshing {
-                refreshingControl.endRefreshing()
-            }
+           
         }
         
         return true
@@ -84,8 +104,13 @@ class ViewController: UITableViewController {
                     alertController.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.Default){(action) in self.updateChannels()})
                     
                     self.presentViewController(alertController, animated: true, completion: nil)
+                } else {
+                    self.tableView.reloadData()
+                    
+                    if self.refreshingControl.refreshing {
+                        self.refreshingControl.endRefreshing()
+                    }
                 }
-
         }
     }
     
