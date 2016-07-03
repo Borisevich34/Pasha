@@ -95,8 +95,7 @@ class ViewController: UITableViewController {
     
         Alamofire.request(.GET, "http://feeds.bbci.co.uk/news/world/rss.xml", parameters: nil)
             .response { request, response, data, error in
-                
-                if self.isRequestGood(error, data: data) == false {
+                if !self.isRequestGood(error, data: data) {
                    
                     let alertController = UIAlertController(title: "Sorry", message:
                         "Check you internet connection", preferredStyle: UIAlertControllerStyle.Alert)
