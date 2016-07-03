@@ -69,6 +69,7 @@ class ViewController: UITableViewController {
                 self.channels[i].setItems(xml["rss"]["channel"][i]["item"].all.count)
                 
                 if let url = NSURL(string: xml["rss"]["channel"][i]["image"]["url"].element!.text!) {
+                //if let url = NSURL(string: "http://www.wallpapersultrahd.com/ultrahd/abstract_green+purple7680.jpg") {
                     if let imageData = NSData(contentsOfURL: url) {
                         self.channels[i].setImage(UIImage(data: imageData)!)
                     }
@@ -87,8 +88,6 @@ class ViewController: UITableViewController {
                     self.channels[i].getItem(j).setLink(((xml["rss"]["channel"][i]["item"][j]["link"].element!.text!)))
                 }
             }
-            
-           
         }
         
         return true
@@ -128,6 +127,7 @@ class ViewController: UITableViewController {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("channel")! as UITableViewCell
         
         cell.textLabel?.text = channels[indexPath.row].getTitle()
+        //cell.imageView?.af_setImageWithURL()
         cell.imageView?.image = channels[indexPath.row].getImage()
         return cell
     }
