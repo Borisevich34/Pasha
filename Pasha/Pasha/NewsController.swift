@@ -40,6 +40,14 @@ class NewsController: UITableViewController {
 //            return UITableViewCell()
 //        }
 
+//        guard let cell = self.tableView.dequeueReusableCellWithIdentifier("item") as? CustomCell else {
+//            return UITableViewCell()
+//        }
+//        
+//        cell.cellLabel.text = channels[indexOfChannel].getItem(indexPath.row).getTitle()
+//        cell.cellSubtitle.text = channels[indexOfChannel].getItem(indexPath.row).getDescription()
+//        return cell
+        
         if let cell = self.tableView.dequeueReusableCellWithIdentifier("item") as? CustomCell {
             cell.cellLabel.text = channels[indexOfChannel].getItem(indexPath.row).getTitle()
             cell.cellSubtitle.text = channels[indexOfChannel].getItem(indexPath.row).getDescription()
