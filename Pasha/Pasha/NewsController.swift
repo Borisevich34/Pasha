@@ -18,6 +18,9 @@ class NewsController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // the following two lines switch on self-sizing cell mechanism
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 10
         
     }
@@ -51,11 +54,13 @@ class NewsController: UITableViewController {
         
         if let cell = self.tableView.dequeueReusableCellWithIdentifier("item") as? CustomCell {
             if let title = channel?.getItem(indexPath.row).getTitle() {
-              cell.cellLabel.text = title
+                // Just to check that auto height works
+                cell.cellLabel.text = indexPath.row % 2 == 0 ? title : title + title + title
+                //cell.cellLabel.text = title
             } else {
                 cell.cellLabel.text = ""
             }
-            cell.cellLabel.text = channel?.getItem(indexPath.row).getTitle() ?? ""
+            //cell.cellLabel.text = channel?.getItem(indexPath.row).getTitle() ?? ""
             cell.cellSubtitle.text = channel?.getItem(indexPath.row).getDescription() ?? ""
             return cell
         } else {
