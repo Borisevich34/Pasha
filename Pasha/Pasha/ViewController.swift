@@ -9,12 +9,11 @@
 import UIKit
 import SWXMLHash
 import Alamofire
+import AlamofireImage
 
 class ViewController: UITableViewController {
 
     var channels = [Channel]()
-    var chanel2: [String]?
-    var request: Request?
     
     @IBOutlet weak var refreshingControl: UIRefreshControl!
     
@@ -23,38 +22,15 @@ class ViewController: UITableViewController {
         
         updateChannels()
         
-        self.view.subviews
-        
         refreshingControl.addTarget(self, action: #selector(ViewController.updateChannels), forControlEvents: UIControlEvents.ValueChanged)
     }
 
     func isRequestGood(error: NSError?, data: NSData?)-> Bool {
         
-        if (error != nil) {
-            
+        if (error != nil || data == nil ) {
             return false
-            
-        } else {
-
-            
-//            if self.chanel2 != nil {
-//                let firstItem = self.chanel2![0]
-//            } else {
-//                print("Error")
-//            }
-
-            
-//            if let chanel2 = self.chanel2 {
-//                let firstItem = chanel2[0]
-//            } else {
-//                print("Error")
-//            }
-//
-//            let firstItem = self.chanel2![0]
-//            let secondItem = self.chanel2?[0]
-            //secondItem.capitalizedString
-            
-            
+        }
+        else {
             
             let xml = SWXMLHash.parse(data!)
             
@@ -62,30 +38,27 @@ class ViewController: UITableViewController {
             
             for i in 0 ..< xml["rss"]["channel"].all.count {
                 
-                if let text = xml["rss"]["channel"][i]["title"].element?.text {
+                if let text = xml["rss"]["channel"][i]["title"].element?.text, let imageLink = xml["rss"]["channel"][i]["image"]["url"].element?.text {
                     self.channels[i].setTitle(text)
-                }
-                
-                self.channels[i].setItems(xml["rss"]["channel"][i]["item"].all.count)
-                
-                if let url = NSURL(string: xml["rss"]["channel"][i]["image"]["url"].element!.text!) {
-                //if let url = NSURL(string: "http://www.wallpapersultrahd.com/ultrahd/abstract_green+purple7680.jpg") {
-                    if let imageData = NSData(contentsOfURL: url) {
-                        self.channels[i].setImage(UIImage(data: imageData)!)
-                    }
-                    else {
-                        return false
-                    }
+                    self.channels[i].setImageLink(imageLink)
                 }
                 else {
                     return false
                 }
                 
+                self.channels[i].setItems(xml["rss"]["channel"][i]["item"].all.count)
+
+                
                 for j in 0 ..< xml["rss"]["channel"][i]["item"].all.count {
                     
-                    self.channels[i].getItem(j).setTitle(xml["rss"]["channel"][i]["item"][j]["title"].element!.text!)
-                    self.channels[i].getItem(j).setDescription((xml["rss"]["channel"][i]["item"][j]["description"].element!.text!))
-                    self.channels[i].getItem(j).setLink(((xml["rss"]["channel"][i]["item"][j]["link"].element!.text!)))
+                    if let title = xml["rss"]["channel"][i]["item"][j]["title"].element?.text, let description = xml["rss"]["channel"][i]["item"][j]["description"].element?.text, let link = xml["rss"]["channel"][i]["item"][j]["link"].element?.text, let imageLink = xml["rss"]["channel"][i]["item"][j]["media:thumbnail"].element?.attributes["url"] {
+                        
+                        self.channels[i].getItem(j).setTitle(title)
+                        self.channels[i].getItem(j).setDescription(description)
+                        self.channels[i].getItem(j).setLink(link)
+                        self.channels[i].getItem(j).setImageLink(imageLink)
+
+                    }
                 }
             }
         }
@@ -100,7 +73,7 @@ class ViewController: UITableViewController {
                 if !self.isRequestGood(error, data: data) {
                    
                     let alertController = UIAlertController(title: "Sorry", message:
-                        "Check you internet connection", preferredStyle: UIAlertControllerStyle.Alert)
+                        "Check your internet connection", preferredStyle: UIAlertControllerStyle.Alert)
                     
                     alertController.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.Default){(action) in self.updateChannels()})
                     
@@ -124,12 +97,19 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("channel")! as UITableViewCell
-        
-        cell.textLabel?.text = channels[indexPath.row].getTitle()
-        //cell.imageView?.af_setImageWithURL()
-        cell.imageView?.image = channels[indexPath.row].getImage()
-        return cell
+        if let cell = self.tableView.dequeueReusableCellWithIdentifier("channel")! as? CustomChannelCell {
+            
+            cell.cellLabel.text = channels[indexPath.row].getTitle()
+            
+            if let url = NSURL(string: channels[indexPath.row].getImageLink()) {
+                cell.cellImageView.af_setImageWithURL(url)
+            }
+            
+            return cell
+        }
+        else {
+            return UITableViewCell()
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -137,8 +117,6 @@ class ViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {                
                 controller.channel = self.channels[indexPath.row]
             }
-//            controller.indexOfChannel = (self.tableView.indexPathForCell((sender as! UITableViewCell))?.row)!
-//                controller.channels = self.channels
         }
         
     }

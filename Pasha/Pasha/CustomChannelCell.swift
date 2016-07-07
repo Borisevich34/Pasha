@@ -1,18 +1,19 @@
 //
-//  CustomCell.swift
+//  CustomChannelCell.swift
 //  Pasha
 //
-//  Created by MacBook on 02.07.16.
+//  Created by MacBook on 07.07.16.
 //  Copyright © 2016 MacBook. All rights reserved.
 //
 
+import Foundation
+
 import UIKit
 
-class CustomCell: UITableViewCell {
+class CustomChannelCell: UITableViewCell {
     
+    @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var cellLabel: UILabel!
-    @IBOutlet weak var cellSubtitle: UILabel!
-    var testString: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()

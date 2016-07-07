@@ -13,11 +13,15 @@ class Item {
     var tittle : String
     var description : String
     var link : String
+    var imageLink : String
+    var channel : String
     
     init () {
         tittle = ""
         description = ""
         link = ""
+        channel = ""
+        imageLink = ""
     }
     
     func setTitle(string : String) {
@@ -29,6 +33,13 @@ class Item {
     func setLink(string : String) {
         link = string
     }
+    func setImageLink(string : String) {
+        imageLink = string
+    }
+    func setChannel(string : String) {
+        channel = string
+    }
+    
     
     func getTitle() -> String {
         return tittle
@@ -38,6 +49,12 @@ class Item {
     }
     func getLink() -> String {
         return link
+    }
+    func getImageLink() -> String {
+        return imageLink
+    }
+    func getChannel() -> String {
+        return channel
     }
     
 }

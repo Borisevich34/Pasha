@@ -12,20 +12,20 @@ import Foundation
 class Channel {
     
     var title : String
-    var image : UIImage
+    var imageLink : String
     var items : [Item]?
     var countOfItems : Int
     
     init () {
         title = ""
-        image = UIImage()
+        imageLink = ""
         countOfItems = 0
     }
     
     func setItems (countItems : Int) {
         items = [Item](count : countItems, repeatedValue : Item())
         for i in 0 ..< countItems {
-            items![i] = Item() //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            items![i] = Item()
         }
         countOfItems = countItems
     }
@@ -33,8 +33,8 @@ class Channel {
     func getTitle() -> String {
         return title
     }
-    func getImage () -> UIImage {
-        return image
+    func getImageLink () -> String {
+        return imageLink
     }
     func getItem (index : Int) -> Item {
         return items![index]
@@ -48,8 +48,8 @@ class Channel {
     func setTitle(newTitle : String) {
         title = newTitle
     }
-    func setImage (newImage : UIImage) {
-        image = newImage
+    func setImageLink (newImageLink : String) {
+        imageLink = newImageLink
     }
     
 }

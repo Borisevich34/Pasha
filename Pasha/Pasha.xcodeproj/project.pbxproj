@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		9BBB78C6B00F0F39C94428F6 /* Pods_Pasha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DE8524CB7D12E460270E /* Pods_Pasha.framework */; };
+		FA3488E71D2EC9A70022467A /* CustomChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3488E61D2EC9A70022467A /* CustomChannelCell.swift */; };
 		FA5297771D26CA53007EF866 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297761D26CA53007EF866 /* Channel.swift */; };
 		FA5297791D26CA62007EF866 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297781D26CA62007EF866 /* Item.swift */; };
 		FAD893051D27BEA10021F7C7 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD893041D27BEA10021F7C7 /* NewsController.swift */; };
-		FAD8930B1D281E540021F7C7 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8930A1D281E540021F7C7 /* CustomCell.swift */; };
+		FAD8930B1D281E540021F7C7 /* CustomItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8930A1D281E540021F7C7 /* CustomItemCell.swift */; };
 		FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */; };
 		FAEBFA891D1FE9DA001FD524 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA881D1FE9DA001FD524 /* ViewController.swift */; };
 		FAEBFA8C1D1FE9DA001FD524 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEBFA8A1D1FE9DA001FD524 /* Main.storyboard */; };
@@ -24,10 +25,11 @@
 		4814DE8524CB7D12E460270E /* Pods_Pasha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pasha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5402109024810A3BFF386F09 /* Pods-Pasha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasha.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pasha/Pods-Pasha.release.xcconfig"; sourceTree = "<group>"; };
 		541E2FADD148BB763BEAB3EB /* Pods-Pasha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pasha/Pods-Pasha.debug.xcconfig"; sourceTree = "<group>"; };
+		FA3488E61D2EC9A70022467A /* CustomChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomChannelCell.swift; sourceTree = "<group>"; };
 		FA5297761D26CA53007EF866 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		FA5297781D26CA62007EF866 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FAD893041D27BEA10021F7C7 /* NewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
-		FAD8930A1D281E540021F7C7 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		FAD8930A1D281E540021F7C7 /* CustomItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomItemCell.swift; sourceTree = "<group>"; };
 		FAEBFA831D1FE9DA001FD524 /* Pasha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pasha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAEBFA881D1FE9DA001FD524 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +93,8 @@
 				FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */,
 				FAEBFA881D1FE9DA001FD524 /* ViewController.swift */,
 				FAD893041D27BEA10021F7C7 /* NewsController.swift */,
-				FAD8930A1D281E540021F7C7 /* CustomCell.swift */,
+				FAD8930A1D281E540021F7C7 /* CustomItemCell.swift */,
+				FA3488E61D2EC9A70022467A /* CustomChannelCell.swift */,
 				FA5297761D26CA53007EF866 /* Channel.swift */,
 				FA5297781D26CA62007EF866 /* Item.swift */,
 				FAEBFA8A1D1FE9DA001FD524 /* Main.storyboard */,
@@ -231,7 +234,8 @@
 				FAEBFA891D1FE9DA001FD524 /* ViewController.swift in Sources */,
 				FA5297771D26CA53007EF866 /* Channel.swift in Sources */,
 				FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */,
-				FAD8930B1D281E540021F7C7 /* CustomCell.swift in Sources */,
+				FAD8930B1D281E540021F7C7 /* CustomItemCell.swift in Sources */,
+				FA3488E71D2EC9A70022467A /* CustomChannelCell.swift in Sources */,
 				FAEBFA8F1D1FE9DA001FD524 /* Pasha.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
