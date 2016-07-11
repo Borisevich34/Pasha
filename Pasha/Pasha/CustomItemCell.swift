@@ -10,6 +10,7 @@ import UIKit
 
 class CustomItemCell: UITableViewCell {
     
+    @IBOutlet weak var cellButton: UIButton!
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellSubtitle: UILabel!

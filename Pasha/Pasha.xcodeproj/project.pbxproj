@@ -19,6 +19,7 @@
 		FAEBFA8F1D1FE9DA001FD524 /* Pasha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA8D1D1FE9DA001FD524 /* Pasha.xcdatamodeld */; };
 		FAEBFA911D1FE9DA001FD524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEBFA901D1FE9DA001FD524 /* Assets.xcassets */; };
 		FAEBFA941D1FE9DA001FD524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEBFA921D1FE9DA001FD524 /* LaunchScreen.storyboard */; };
+		FAFEF4CD1D33A36D000FD3FF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFEF4CC1D33A36D000FD3FF /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FAEBFA901D1FE9DA001FD524 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAEBFA931D1FE9DA001FD524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAEBFA951D1FE9DA001FD524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAFEF4CC1D33A36D000FD3FF /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				FA5297781D26CA62007EF866 /* Item.swift */,
 				FAEBFA8A1D1FE9DA001FD524 /* Main.storyboard */,
 				FAEBFA901D1FE9DA001FD524 /* Assets.xcassets */,
+				FAFEF4CC1D33A36D000FD3FF /* Media.xcassets */,
 				FAEBFA921D1FE9DA001FD524 /* LaunchScreen.storyboard */,
 				FAEBFA951D1FE9DA001FD524 /* Info.plist */,
 				FAEBFA8D1D1FE9DA001FD524 /* Pasha.xcdatamodeld */,
@@ -170,6 +173,7 @@
 			files = (
 				FAEBFA941D1FE9DA001FD524 /* LaunchScreen.storyboard in Resources */,
 				FAEBFA911D1FE9DA001FD524 /* Assets.xcassets in Resources */,
+				FAFEF4CD1D33A36D000FD3FF /* Media.xcassets in Resources */,
 				FAEBFA8C1D1FE9DA001FD524 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
