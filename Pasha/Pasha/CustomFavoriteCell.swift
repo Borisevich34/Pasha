@@ -1,32 +1,29 @@
 //
-//  CustomCell.swift
+//  CustomFavouriteCell.swift
 //  Pasha
 //
-//  Created by MacBook on 02.07.16.
+//  Created by MacBook on 11.07.16.
 //  Copyright © 2016 MacBook. All rights reserved.
 //
 
 import UIKit
 
-class CustomItemCell: UITableViewCell {
+class CustomFavoriteCell: UITableViewCell {
     
-    @IBOutlet weak var cellButton: UIButton!
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellSubtitle: UILabel!
     
-    static var delegate : AddToFavorites?
-    var item : Item?
+    var link : String?
     
-    func setItem(newItem : Item) {
-        item = newItem
+    func setOutLink(newLink : String) {
+        link = newLink
     }
     
-    @IBAction func addToFavourite(sender: AnyObject) {
-        
-        CustomItemCell.delegate?.addToFavorites(item!)
-        
+    func getOutLink() -> String? {
+        return link
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -35,3 +32,4 @@ class CustomItemCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 }
+

@@ -50,6 +50,12 @@ class NewsController: UITableViewController {
 
             cell.cellSubtitle.text = channel?.getItem(indexPath.row).getDescription() ?? ""
             
+            cell.cellButton.highlighted = true
+            if let item = channel?.getItem(indexPath.row) {
+                cell.setItem(item)
+            }
+            
+            
             return cell
         } else {
             return UITableViewCell()

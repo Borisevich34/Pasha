@@ -20,6 +20,8 @@
 		FAEBFA911D1FE9DA001FD524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEBFA901D1FE9DA001FD524 /* Assets.xcassets */; };
 		FAEBFA941D1FE9DA001FD524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEBFA921D1FE9DA001FD524 /* LaunchScreen.storyboard */; };
 		FAFEF4CD1D33A36D000FD3FF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFEF4CC1D33A36D000FD3FF /* Media.xcassets */; };
+		FAFEF4CF1D33E2ED000FD3FF /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEF4CE1D33E2ED000FD3FF /* FavoritesController.swift */; };
+		FAFEF4D11D343A33000FD3FF /* CustomFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEF4D01D343A33000FD3FF /* CustomFavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		FAEBFA931D1FE9DA001FD524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAEBFA951D1FE9DA001FD524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFEF4CC1D33A36D000FD3FF /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		FAFEF4CE1D33E2ED000FD3FF /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
+		FAFEF4D01D343A33000FD3FF /* CustomFavoriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +98,11 @@
 			children = (
 				FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */,
 				FAEBFA881D1FE9DA001FD524 /* ViewController.swift */,
+				FA3488E61D2EC9A70022467A /* CustomChannelCell.swift */,
 				FAD893041D27BEA10021F7C7 /* NewsController.swift */,
 				FAD8930A1D281E540021F7C7 /* CustomItemCell.swift */,
-				FA3488E61D2EC9A70022467A /* CustomChannelCell.swift */,
+				FAFEF4CE1D33E2ED000FD3FF /* FavoritesController.swift */,
+				FAFEF4D01D343A33000FD3FF /* CustomFavoriteCell.swift */,
 				FA5297761D26CA53007EF866 /* Channel.swift */,
 				FA5297781D26CA62007EF866 /* Item.swift */,
 				FAEBFA8A1D1FE9DA001FD524 /* Main.storyboard */,
@@ -239,6 +245,8 @@
 				FA5297771D26CA53007EF866 /* Channel.swift in Sources */,
 				FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */,
 				FAD8930B1D281E540021F7C7 /* CustomItemCell.swift in Sources */,
+				FAFEF4D11D343A33000FD3FF /* CustomFavoriteCell.swift in Sources */,
+				FAFEF4CF1D33E2ED000FD3FF /* FavoritesController.swift in Sources */,
 				FA3488E71D2EC9A70022467A /* CustomChannelCell.swift in Sources */,
 				FAEBFA8F1D1FE9DA001FD524 /* Pasha.xcdatamodeld in Sources */,
 			);

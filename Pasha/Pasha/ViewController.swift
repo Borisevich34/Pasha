@@ -20,6 +20,13 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        if let controllers = self.tabBarController?.viewControllers {
+            if let favourites = controllers[1] as? FavoritesController {
+
+                CustomItemCell.delegate = favourites
+            }
+        }
         updateChannels()
         
         refreshingControl.addTarget(self, action: #selector(ViewController.updateChannels), forControlEvents: UIControlEvents.ValueChanged)
