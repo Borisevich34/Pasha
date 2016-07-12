@@ -28,9 +28,6 @@ class FavoritesController: UITableViewController, AddToFavorites, UITabBarDelega
         else {
             titles = [String]()
         }
-
-        //let intresting = story.dictionaryRepresentation().keys.reverse()    //!!!!!!!!!!!!!!!!!!!
-
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 10
@@ -79,6 +76,18 @@ class FavoritesController: UITableViewController, AddToFavorites, UITabBarDelega
         if let url = (tableView.cellForRowAtIndexPath(indexPath) as? CustomFavoriteCell)?.getOutLink(), let requestUrl = NSURL(string: url) {
             UIApplication.sharedApplication().openURL(requestUrl)
         }
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            story.removeObjectForKey(titles.removeAtIndex(indexPath.row))
+            story.setObject(titles, forKey: "titles")
+            story.synchronize()
+            
+        }
+        
+        tableView.reloadData()
     }
     
     func addToFavorites(item: Item) {
