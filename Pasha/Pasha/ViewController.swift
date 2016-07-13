@@ -19,6 +19,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         
         
         if let controllers = self.tabBarController?.viewControllers {
