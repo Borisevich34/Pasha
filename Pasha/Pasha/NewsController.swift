@@ -12,7 +12,8 @@ import Alamofire
 
 class NewsController: UITableViewController {
 
-    var channel: Channel?
+    var items: [Item]?
+    var isFavoritesController = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,14 @@ class NewsController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 10
         
+        if isFavoritesController {
+            items = Singleton.dataBase.getFromDataBase()
+        }
+    
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,33 +37,28 @@ class NewsController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channel?.countOfItems ?? 0
+        return items?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if let cell = self.tableView.dequeueReusableCellWithIdentifier("item") as? CustomItemCell {
             
-            if let string = channel?[indexPath.row].imageLink {
-                if let url = NSURL(string: string) {
-
-                    cell.cellImageView!.af_setImageWithURL(url)
-                   
-                }
+            if let string = items?[indexPath.row].imageLink, let url = NSURL(string: string) {
+                
+                cell.cellImageView!.af_setImageWithURL(url)
+                
             }
             
-            if let title = channel?[indexPath.row].title {
-                cell.cellLabel.text = title
-            } else {
-                cell.cellLabel.text = ""
-            }
-
-            cell.cellSubtitle.text = channel?[indexPath.row].description ?? ""
+            cell.cellLabel.text = items?[indexPath.row].title ?? " "
+            cell.cellSubtitle.text = items?[indexPath.row].description ?? " "
+            cell.setItem(items?[indexPath.row] ?? Item())
             
+            //if !isFavoritesController
+                //если есть в синглтоне то подсветить
+            //else cell.button.makeDisable()
             cell.cellButton.highlighted = true
-            if let item = channel?[indexPath.row] {
-                cell.setItem(item)
-            }
+            
             
             
             return cell
@@ -64,9 +68,24 @@ class NewsController: UITableViewController {
         
     }
     
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return isFavoritesController
+    }
+
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            Singleton.dataBase.removeFromDataBase(indexPath.row)
+            
+        }
+        
+        tableView.reloadData()
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if let requestUrl = NSURL(string: channel?[indexPath.row].link ?? "") {
+        if let requestUrl = NSURL(string: items?[indexPath.row].link ?? "") {
             UIApplication.sharedApplication().openURL(requestUrl)
         }
     }

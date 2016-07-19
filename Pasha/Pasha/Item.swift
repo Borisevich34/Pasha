@@ -14,13 +14,13 @@ class Item {
     var description : String
     var link : String
     var imageLink : String
-    var channel : String
+    var isFromFavorites : Bool
     
     init () {
         title = ""
         description = ""
         link = ""
-        channel = ""
+        isFromFavorites = false
         imageLink = ""
     }
     

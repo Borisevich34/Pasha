@@ -22,12 +22,6 @@ class ViewController: UITableViewController {
         
         tableView.tableFooterView = UIView()
         
-        if let controllers = self.tabBarController?.viewControllers {
-            if let favourites = controllers[1] as? FavoritesController {
-
-                CustomItemCell.delegate = favourites
-            }
-        }
         updateChannels()
         
         refreshingControl.addTarget(self, action: #selector(ViewController.updateChannels), forControlEvents: UIControlEvents.ValueChanged)
@@ -59,6 +53,7 @@ class ViewController: UITableViewController {
                 
                 for j in 0 ..< xml["rss"]["channel"][i]["item"].all.count {
                     
+                    //тут плохо, надо сделать ?? " "
                     if let title = xml["rss"]["channel"][i]["item"][j]["title"].element?.text, let description = xml["rss"]["channel"][i]["item"][j]["description"].element?.text, let link = xml["rss"]["channel"][i]["item"][j]["link"].element?.text, let imageLink = xml["rss"]["channel"][i]["item"][j]["media:thumbnail"].element?.attributes["url"] {
                         
                         self.channels[i][j].title = title
@@ -107,7 +102,7 @@ class ViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = self.tableView.dequeueReusableCellWithIdentifier("channel")! as? CustomChannelCell {
             
-            cell.cellLabel.text = channels[indexPath.row].title//.getTitle()
+            cell.cellLabel.text = channels[indexPath.row].title
             
             if let url = NSURL(string: channels[indexPath.row].imageLink) {
                 cell.cellImageView.af_setImageWithURL(url)
@@ -123,7 +118,8 @@ class ViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let controller = segue.destinationViewController as? NewsController {
             if let indexPath = tableView.indexPathForSelectedRow {                
-                controller.channel = self.channels[indexPath.row]
+                controller.items = self.channels[indexPath.row].items
+                controller.isFavoritesController = false
             }
         }
         

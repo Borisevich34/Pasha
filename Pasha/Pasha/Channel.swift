@@ -13,7 +13,7 @@ class Channel {
     
     var title : String
     var imageLink : String
-    var items : [Item]?
+    var items : [Item]!
     var countOfItems : Int
     
     init () {
@@ -25,14 +25,14 @@ class Channel {
     func setItems (countItems : Int) {
         items = [Item](count : countItems, repeatedValue : Item())
         for i in 0 ..< countItems {
-            items![i] = Item()
+            items[i] = Item()
         }
         countOfItems = countItems
     }
 
     subscript(index: Int) -> Item {
         get {
-            return items![index]
+            return items[index]
         }
     }
     

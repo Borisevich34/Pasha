@@ -82,9 +82,17 @@ class FavoritesController: UITableViewController, AddToFavorites, UITabBarDelega
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
+            
+            //////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////
+            //здесь синглтон ремув
+            //////////////////////////////////////////////////////////////////
+            
             story.removeObjectForKey(titles.removeAtIndex(indexPath.row))
             story.setObject(titles, forKey: "titles")
             story.synchronize()
+            //////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////
             
         }
         
