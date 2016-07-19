@@ -21,19 +21,57 @@ class NewsController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 10
-        
-        if isFavoritesController {
-            items = Singleton.dataBase.getFromDataBase()
-        }
     
+        if !isFavoritesController, let goodItems = items {
+            for var item in goodItems {
+                if Singleton.dataBase.titles.contains(item.title) {
+                    item.isFromFavorites = true
+                }
+            }
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
+        if isFavoritesController {
+            items = Singleton.dataBase.getFromDataBase()
+            
+        }
+        /////////////////////////////////////////////////////////////////
         self.tableView.reloadData()
+        /////////////////////////////////////////////////////////////////
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func addToFavorites(sender: AnyObject) {
+
+        if let goodSender = sender as? UIView , let index = (indexPathForViewInCell(goodSender)?.row), let item = items?[index] {
+            
+            if let button = sender as? UIButton {
+                
+                if item.isFromFavorites {
+                    if let positionInTitles = Singleton.dataBase.titles.indexOf(item.title) {
+                        Singleton.dataBase.removeFromDataBase(positionInTitles)
+                        button.highlighted = true
+                    }
+                }
+                else {
+                    Singleton.dataBase.addToDataBase(item)
+                    button.highlighted = false
+                }
+                item.isFromFavorites = !item.isFromFavorites
+                
+                
+                
+            }
+        }
+    }
+    
+    func indexPathForViewInCell(sender: UIView) -> NSIndexPath? {
+        let point = sender.convertPoint(CGPointZero, toView: self.tableView)
+        return self.tableView.indexPathForRowAtPoint(point)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,14 +90,24 @@ class NewsController: UITableViewController {
             
             cell.cellLabel.text = items?[indexPath.row].title ?? " "
             cell.cellSubtitle.text = items?[indexPath.row].description ?? " "
-            cell.setItem(items?[indexPath.row] ?? Item())
             
-            //if !isFavoritesController
-                //если есть в синглтоне то подсветить
-            //else cell.button.makeDisable()
-            cell.cellButton.highlighted = true
-            
-            
+            /////////////////////////////////////////////////////////////////
+            cell.cellButton.showsTouchWhenHighlighted = true
+            if !isFavoritesController {
+                if let lighting = items?[indexPath.row].isFromFavorites {
+                   
+                    
+                    cell.cellButton.highlighted = !lighting
+                    
+                }
+            }
+
+            else
+            {
+                cell.cellButton.enabled = false
+                cell.cellButton.hidden = true
+            }
+            /////////////////////////////////////////////////////////////////
             
             return cell
         } else {
@@ -78,9 +126,11 @@ class NewsController: UITableViewController {
             
             Singleton.dataBase.removeFromDataBase(indexPath.row)
             
+            items = Singleton.dataBase.getFromDataBase()
+            self.tableView.reloadData()
         }
         
-        tableView.reloadData()
+        
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

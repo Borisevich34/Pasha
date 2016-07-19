@@ -110,7 +110,7 @@
                                                 <constraint firstAttribute="height" constant="75" id="WXS-z3-kOz"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1R-9R-9T7">
+                                        <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1R-9R-9T7">
                                             <rect key="frame" x="285" y="8" width="22" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="CV9-67-LyS"/>
@@ -121,7 +121,7 @@
                                             <state key="highlighted" image="Star" backgroundImage="Star"/>
                                             <state key="focused" image="Star" backgroundImage="News"/>
                                             <connections>
-                                                <action selector="addToFavourite:" destination="0Iy-ZT-OMg" eventType="touchUpInside" id="ZDX-Vn-Ihc"/>
+                                                <action selector="addToFavorites:" destination="Q7U-IZ-0fu" eventType="touchUpInside" id="uJ3-Ck-Ulw"/>
                                             </connections>
                                         </button>
                                     </subviews>

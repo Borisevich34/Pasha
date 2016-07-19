@@ -15,19 +15,6 @@ class CustomItemCell: UITableViewCell {
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellSubtitle: UILabel!
     
-    var item : Item?
-    
-    func setItem(newItem : Item) {
-        item = newItem
-    }
-    
-    @IBAction func addToFavourite(sender: AnyObject) {
-        
-        
-        //CustomItemCell.delegate?.addToFavorites(item!)
-        //вызов метода синглтона, описание которого в newsController в методе эдтуфаворайтс
-        
-    }
     override func awakeFromNib() {
         super.awakeFromNib()
     }

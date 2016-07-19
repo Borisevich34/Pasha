@@ -53,15 +53,12 @@ class ViewController: UITableViewController {
                 
                 for j in 0 ..< xml["rss"]["channel"][i]["item"].all.count {
                     
-                    //тут плохо, надо сделать ?? " "
-                    if let title = xml["rss"]["channel"][i]["item"][j]["title"].element?.text, let description = xml["rss"]["channel"][i]["item"][j]["description"].element?.text, let link = xml["rss"]["channel"][i]["item"][j]["link"].element?.text, let imageLink = xml["rss"]["channel"][i]["item"][j]["media:thumbnail"].element?.attributes["url"] {
-                        
-                        self.channels[i][j].title = title
-                        self.channels[i][j].description = description
-                        self.channels[i][j].link = link
-                        self.channels[i][j].imageLink = imageLink
-
-                    }
+                    self.channels[i][j].title = xml["rss"]["channel"][i]["item"][j]["title"].element?.text ?? " "
+                    self.channels[i][j].description = xml["rss"]["channel"][i]["item"][j]["description"].element?.text ?? " "
+                    self.channels[i][j].link = xml["rss"]["channel"][i]["item"][j]["link"].element?.text ?? " "
+                    self.channels[i][j].imageLink = xml["rss"]["channel"][i]["item"][j]["media:thumbnail"].element?.attributes["url"] ?? " "
+                    
+                    
                 }
             }
         }
