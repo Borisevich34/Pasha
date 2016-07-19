@@ -17,6 +17,7 @@ class NewsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 10
         
@@ -27,14 +28,14 @@ class NewsController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channel?.getCountOfItems() ?? 0
+        return channel?.countOfItems ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if let cell = self.tableView.dequeueReusableCellWithIdentifier("item") as? CustomItemCell {
             
-            if let string = channel?.getItem(indexPath.row).getImageLink() {
+            if let string = channel?[indexPath.row].imageLink {
                 if let url = NSURL(string: string) {
 
                     cell.cellImageView!.af_setImageWithURL(url)
@@ -42,16 +43,16 @@ class NewsController: UITableViewController {
                 }
             }
             
-            if let title = channel?.getItem(indexPath.row).getTitle() {
+            if let title = channel?[indexPath.row].title {
                 cell.cellLabel.text = title
             } else {
                 cell.cellLabel.text = ""
             }
 
-            cell.cellSubtitle.text = channel?.getItem(indexPath.row).getDescription() ?? ""
+            cell.cellSubtitle.text = channel?[indexPath.row].description ?? ""
             
             cell.cellButton.highlighted = true
-            if let item = channel?.getItem(indexPath.row) {
+            if let item = channel?[indexPath.row] {
                 cell.setItem(item)
             }
             
@@ -65,7 +66,7 @@ class NewsController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if let requestUrl = NSURL(string: channel?.getItem(indexPath.row).getLink() ?? "") {
+        if let requestUrl = NSURL(string: channel?[indexPath.row].link ?? "") {
             UIApplication.sharedApplication().openURL(requestUrl)
         }
     }

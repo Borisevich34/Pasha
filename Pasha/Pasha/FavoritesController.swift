@@ -29,6 +29,7 @@ class FavoritesController: UITableViewController, AddToFavorites, UITabBarDelega
             titles = [String]()
         }
         
+        tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 10
         
@@ -92,18 +93,18 @@ class FavoritesController: UITableViewController, AddToFavorites, UITabBarDelega
     
     func addToFavorites(item: Item) {
         
-        if !story.dictionaryRepresentation().keys.contains(item.getTitle()) {
+        if !story.dictionaryRepresentation().keys.contains(item.title) {
            
-            let title = NSKeyedArchiver.archivedDataWithRootObject(item.getTitle())
-            let subtitle = NSKeyedArchiver.archivedDataWithRootObject(item.getDescription())
-            let imageLink = NSKeyedArchiver.archivedDataWithRootObject(item.getImageLink())
-            let link = NSKeyedArchiver.archivedDataWithRootObject(item.getLink())
+            let title = NSKeyedArchiver.archivedDataWithRootObject(item.title)
+            let subtitle = NSKeyedArchiver.archivedDataWithRootObject(item.description)
+            let imageLink = NSKeyedArchiver.archivedDataWithRootObject(item.imageLink)
+            let link = NSKeyedArchiver.archivedDataWithRootObject(item.link)
             
             let object : [NSData] = [title, subtitle, link, imageLink]
         
-            story.setObject(object, forKey: item.getTitle())
+            story.setObject(object, forKey: item.title)
             
-            titles.insert(item.getTitle(), atIndex: 0) //////////////////
+            titles.insert(item.title, atIndex: 0) //////////////////
             story.setObject(titles, forKey: "titles")   //////////////////
             
             story.synchronize()

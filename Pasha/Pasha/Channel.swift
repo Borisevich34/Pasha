@@ -29,27 +29,11 @@ class Channel {
         }
         countOfItems = countItems
     }
-    
-    func getTitle() -> String {
-        return title
-    }
-    func getImageLink () -> String {
-        return imageLink
-    }
-    func getItem (index : Int) -> Item {
-        return items![index]
-    }
-    func getCountOfItems () -> Int {
-        return countOfItems
-    }
-    
-    
-    
-    func setTitle(newTitle : String) {
-        title = newTitle
-    }
-    func setImageLink (newImageLink : String) {
-        imageLink = newImageLink
+
+    subscript(index: Int) -> Item {
+        get {
+            return items![index]
+        }
     }
     
 }

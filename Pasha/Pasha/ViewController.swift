@@ -20,6 +20,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableFooterView = UIView()
         
         if let controllers = self.tabBarController?.viewControllers {
             if let favourites = controllers[1] as? FavoritesController {
@@ -46,8 +47,8 @@ class ViewController: UITableViewController {
             for i in 0 ..< xml["rss"]["channel"].all.count {
                 
                 if let text = xml["rss"]["channel"][i]["title"].element?.text, let imageLink = xml["rss"]["channel"][i]["image"]["url"].element?.text {
-                    self.channels[i].setTitle(text)
-                    self.channels[i].setImageLink(imageLink)
+                    self.channels[i].title = text
+                    self.channels[i].imageLink = imageLink
                 }
                 else {
                     return false
@@ -60,10 +61,10 @@ class ViewController: UITableViewController {
                     
                     if let title = xml["rss"]["channel"][i]["item"][j]["title"].element?.text, let description = xml["rss"]["channel"][i]["item"][j]["description"].element?.text, let link = xml["rss"]["channel"][i]["item"][j]["link"].element?.text, let imageLink = xml["rss"]["channel"][i]["item"][j]["media:thumbnail"].element?.attributes["url"] {
                         
-                        self.channels[i].getItem(j).setTitle(title)
-                        self.channels[i].getItem(j).setDescription(description)
-                        self.channels[i].getItem(j).setLink(link)
-                        self.channels[i].getItem(j).setImageLink(imageLink)
+                        self.channels[i][j].title = title
+                        self.channels[i][j].description = description
+                        self.channels[i][j].link = link
+                        self.channels[i][j].imageLink = imageLink
 
                     }
                 }
@@ -106,9 +107,9 @@ class ViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = self.tableView.dequeueReusableCellWithIdentifier("channel")! as? CustomChannelCell {
             
-            cell.cellLabel.text = channels[indexPath.row].getTitle()
+            cell.cellLabel.text = channels[indexPath.row].title//.getTitle()
             
-            if let url = NSURL(string: channels[indexPath.row].getImageLink()) {
+            if let url = NSURL(string: channels[indexPath.row].imageLink) {
                 cell.cellImageView.af_setImageWithURL(url)
             }
             
