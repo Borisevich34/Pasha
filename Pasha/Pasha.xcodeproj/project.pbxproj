@@ -12,6 +12,7 @@
 		FA5297771D26CA53007EF866 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297761D26CA53007EF866 /* Channel.swift */; };
 		FA5297791D26CA62007EF866 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297781D26CA62007EF866 /* Item.swift */; };
 		FA7443931D3E5B3800819AF1 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7443921D3E5B3800819AF1 /* Singleton.swift */; };
+		FAA83F171D3F661900E2F98E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA83F161D3F661900E2F98E /* CustomButton.swift */; };
 		FAD893051D27BEA10021F7C7 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD893041D27BEA10021F7C7 /* NewsController.swift */; };
 		FAD8930B1D281E540021F7C7 /* CustomItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8930A1D281E540021F7C7 /* CustomItemCell.swift */; };
 		FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		FA5297761D26CA53007EF866 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		FA5297781D26CA62007EF866 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FA7443921D3E5B3800819AF1 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		FAA83F161D3F661900E2F98E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FAD893041D27BEA10021F7C7 /* NewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		FAD8930A1D281E540021F7C7 /* CustomItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomItemCell.swift; sourceTree = "<group>"; };
 		FAEBFA831D1FE9DA001FD524 /* Pasha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pasha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,9 +98,10 @@
 			children = (
 				FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */,
 				FAEBFA881D1FE9DA001FD524 /* ViewController.swift */,
-				FA3488E61D2EC9A70022467A /* CustomChannelCell.swift */,
 				FAD893041D27BEA10021F7C7 /* NewsController.swift */,
+				FA3488E61D2EC9A70022467A /* CustomChannelCell.swift */,
 				FAD8930A1D281E540021F7C7 /* CustomItemCell.swift */,
+				FAA83F161D3F661900E2F98E /* CustomButton.swift */,
 				FA7443921D3E5B3800819AF1 /* Singleton.swift */,
 				FA5297761D26CA53007EF866 /* Channel.swift */,
 				FA5297781D26CA62007EF866 /* Item.swift */,
@@ -240,6 +243,7 @@
 				FA5297791D26CA62007EF866 /* Item.swift in Sources */,
 				FAEBFA891D1FE9DA001FD524 /* ViewController.swift in Sources */,
 				FA5297771D26CA53007EF866 /* Channel.swift in Sources */,
+				FAA83F171D3F661900E2F98E /* CustomButton.swift in Sources */,
 				FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */,
 				FAD8930B1D281E540021F7C7 /* CustomItemCell.swift in Sources */,
 				FA7443931D3E5B3800819AF1 /* Singleton.swift in Sources */,

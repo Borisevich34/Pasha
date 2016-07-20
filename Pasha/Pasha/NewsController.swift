@@ -22,23 +22,21 @@ class NewsController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 10
     
-        if !isFavoritesController, let goodItems = items {
-            for var item in goodItems {
-                if Singleton.dataBase.titles.contains(item.title) {
-                    item.isFromFavorites = true
-                }
-            }
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
         if isFavoritesController {
             items = Singleton.dataBase.getFromDataBase()
-            
         }
-        /////////////////////////////////////////////////////////////////
+        else {
+            if let goodItems = items {
+                for var item in goodItems {
+                    item.isFromFavorites = Singleton.dataBase.titles.contains(item.title)
+                }
+            }
+        }
         self.tableView.reloadData()
-        /////////////////////////////////////////////////////////////////
+        //^^ это не очень хорошо
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,21 +47,20 @@ class NewsController: UITableViewController {
 
         if let goodSender = sender as? UIView , let index = (indexPathForViewInCell(goodSender)?.row), let item = items?[index] {
             
-            if let button = sender as? UIButton {
+            if let button = sender as? CustomButton {
                 
                 if item.isFromFavorites {
                     if let positionInTitles = Singleton.dataBase.titles.indexOf(item.title) {
                         Singleton.dataBase.removeFromDataBase(positionInTitles)
-                        button.highlighted = true
+                        
                     }
                 }
                 else {
                     Singleton.dataBase.addToDataBase(item)
-                    button.highlighted = false
                 }
+
+                button.isFavorite = !item.isFromFavorites
                 item.isFromFavorites = !item.isFromFavorites
-                
-                
                 
             }
         }
@@ -90,25 +87,18 @@ class NewsController: UITableViewController {
             
             cell.cellLabel.text = items?[indexPath.row].title ?? " "
             cell.cellSubtitle.text = items?[indexPath.row].description ?? " "
-            
-            /////////////////////////////////////////////////////////////////
-            cell.cellButton.showsTouchWhenHighlighted = true
+
             if !isFavoritesController {
                 if let lighting = items?[indexPath.row].isFromFavorites {
-                   
-                    
-                    cell.cellButton.highlighted = !lighting
-                    
+                    cell.cellButton.isFavorite = lighting
                 }
             }
-
             else
             {
                 cell.cellButton.enabled = false
                 cell.cellButton.hidden = true
             }
-            /////////////////////////////////////////////////////////////////
-            
+
             return cell
         } else {
             return UITableViewCell()

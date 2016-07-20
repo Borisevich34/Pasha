@@ -110,13 +110,13 @@
                                                 <constraint firstAttribute="height" constant="75" id="WXS-z3-kOz"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1R-9R-9T7">
-                                            <rect key="frame" x="285" y="8" width="22" height="22"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1R-9R-9T7" customClass="CustomButton" customModule="Pasha" customModuleProvider="target">
+                                            <rect key="frame" x="285" y="8" width="25" height="25"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="22" id="CV9-67-LyS"/>
-                                                <constraint firstAttribute="width" constant="22" id="Dv3-Fn-vUw"/>
+                                                <constraint firstAttribute="height" constant="25" id="CV9-67-LyS"/>
+                                                <constraint firstAttribute="width" constant="25" id="Dv3-Fn-vUw"/>
                                             </constraints>
-                                            <state key="normal" image="Star"/>
+                                            <state key="normal" image="ButtonOFF"/>
                                             <state key="selected" image="Star"/>
                                             <state key="highlighted" image="Star" backgroundImage="Star"/>
                                             <state key="focused" image="Star" backgroundImage="News"/>
@@ -137,7 +137,7 @@
                                         <constraint firstItem="mGS-6H-ZGo" firstAttribute="top" secondItem="hdw-o3-fFR" secondAttribute="topMargin" constant="9" id="nHd-vT-okJ"/>
                                         <constraint firstItem="mHE-pm-xTF" firstAttribute="bottom" secondItem="hdw-o3-fFR" secondAttribute="bottomMargin" id="nm4-e3-2ra"/>
                                         <constraint firstItem="6ab-DW-BTM" firstAttribute="trailing" secondItem="hdw-o3-fFR" secondAttribute="trailingMargin" constant="-35" id="qx7-nJ-xaz"/>
-                                        <constraint firstItem="a1R-9R-9T7" firstAttribute="trailing" secondItem="hdw-o3-fFR" secondAttribute="trailingMargin" constant="-5" id="uiy-KO-5Ee"/>
+                                        <constraint firstItem="a1R-9R-9T7" firstAttribute="trailing" secondItem="hdw-o3-fFR" secondAttribute="trailingMargin" constant="-2" id="uiy-KO-5Ee"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -206,7 +206,6 @@
         <!--Favorites-->
         <scene sceneID="vJI-aG-KNO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="svX-VQ-WyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fsm-u6-8Qe" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="Star" selectedImage="Star" id="qM3-vu-JiX"/>
                     <toolbarItems/>
@@ -219,11 +218,13 @@
                         <segue destination="Q7U-IZ-0fu" kind="relationship" relationship="rootViewController" id="Dst-qD-bNs"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="svX-VQ-WyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1520" y="721"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ButtonOFF" width="25" height="25"/>
         <image name="News" width="25" height="25"/>
         <image name="Star" width="22" height="22"/>
     </resources>
