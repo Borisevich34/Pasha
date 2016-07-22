@@ -2,7 +2,6 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Star.png",
       "scale" : "1x"
     },
     {
@@ -12,6 +11,7 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "Star-100.png",
       "scale" : "3x"
     }
   ],

@@ -9,13 +9,13 @@
         <!--Channels-->
         <scene sceneID="Ybg-xf-Peq">
             <objects>
-                <tableViewController id="yll-Hw-PhK" customClass="ViewController" customModule="Pasha" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yll-Hw-PhK" customClass="ChannelsController" customModule="Pasha" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" id="bjK-NU-a1U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="channel" rowHeight="75" id="wsD-GF-YPR" customClass="CustomChannelCell" customModule="Pasha" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Channel" rowHeight="75" id="wsD-GF-YPR" customClass="ChannelCell" customModule="Pasha" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wsD-GF-YPR" id="2cz-5X-Gka">
@@ -29,7 +29,7 @@
                                                 <constraint firstAttribute="height" constant="45" id="wlf-Q9-VWy"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ka-js-QK3">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ka-js-QK3">
                                             <rect key="frame" x="96" y="8" width="216" height="45"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -47,7 +47,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellImageView" destination="b3J-45-we5" id="dje-cW-TYq"/>
-                                    <outlet property="cellLabel" destination="5Ka-js-QK3" id="51s-rF-vuR"/>
+                                    <outlet property="cellTitle" destination="5Ka-js-QK3" id="Nr2-Bj-OcI"/>
                                     <segue destination="Q7U-IZ-0fu" kind="show" id="nU1-MO-pN0"/>
                                 </connections>
                             </tableViewCell>
@@ -80,14 +80,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="item" rowHeight="110" id="0Iy-ZT-OMg" customClass="CustomItemCell" customModule="Pasha" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="New" rowHeight="110" id="0Iy-ZT-OMg" customClass="NewCell" customModule="Pasha" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Iy-ZT-OMg" id="hdw-o3-fFR">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ab-DW-BTM">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ab-DW-BTM">
                                             <rect key="frame" x="126" y="8" width="151" height="20"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,7 +110,7 @@
                                                 <constraint firstAttribute="height" constant="70" id="WXS-z3-kOz"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1R-9R-9T7" customClass="CustomButton" customModule="Pasha" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1R-9R-9T7" customClass="FavoriteButton" customModule="Pasha" customModuleProvider="target">
                                             <rect key="frame" x="285" y="8" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="CV9-67-LyS"/>
@@ -143,8 +143,8 @@
                                 <connections>
                                     <outlet property="cellButton" destination="a1R-9R-9T7" id="zdr-vw-RKV"/>
                                     <outlet property="cellImageView" destination="mGS-6H-ZGo" id="m7N-C4-YTd"/>
-                                    <outlet property="cellLabel" destination="6ab-DW-BTM" id="6hS-IN-6Vt"/>
                                     <outlet property="cellSubtitle" destination="mHE-pm-xTF" id="C5T-UA-uA1"/>
+                                    <outlet property="cellTitle" destination="6ab-DW-BTM" id="3ee-Cr-yIT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -226,7 +226,7 @@
     <resources>
         <image name="ButtonOFF" width="25" height="25"/>
         <image name="News" width="25" height="25"/>
-        <image name="Star" width="22" height="22"/>
+        <image name="Star" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nU1-MO-pN0"/>

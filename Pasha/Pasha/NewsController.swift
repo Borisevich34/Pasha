@@ -12,7 +12,7 @@ import Alamofire
 
 class NewsController: UITableViewController {
 
-    var items: [Item]?
+    var news = [New]()
     var isFavoritesController = true
     
     override func viewDidLoad() {
@@ -26,41 +26,36 @@ class NewsController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         if isFavoritesController {
-            items = Singleton.dataBase.getFromDataBase()
+            news = DataBase.shared.getFromDataBase()
         }
         else {
-            if let goodItems = items {
-                for var item in goodItems {
-                    item.isFromFavorites = Singleton.dataBase.titles.contains(item.title)
-                }
-            }
+            news.forEach { $0.isFromFavorites =  DataBase.shared.titles.contains($0.title) }
         }
         self.tableView.reloadData()
-        //^^ это не очень хорошо
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     @IBAction func addToFavorites(sender: AnyObject) {
 
-        if let goodSender = sender as? UIView , let index = (indexPathForViewInCell(goodSender)?.row), let item = items?[index] {
+        if let sender = sender as? UIView , index = (indexPathForViewInCell(sender)?.row) {
             
-            if let button = sender as? CustomButton {
+            let new = news[index]
+            if let button = sender as? FavoriteButton {
                 
-                if item.isFromFavorites {
-                    if let positionInTitles = Singleton.dataBase.titles.indexOf(item.title) {
-                        Singleton.dataBase.removeFromDataBase(positionInTitles)
+                if new.isFromFavorites {
+                    if let positionInTitles = DataBase.shared.titles.indexOf(new.title) {
+                        DataBase.shared.removeFromDataBase(positionInTitles)
                         
                     }
                 }
                 else {
-                    Singleton.dataBase.addToDataBase(item)
+                    DataBase.shared.addToDataBase(new)
                 }
 
-                button.isFavorite = !item.isFromFavorites
-                item.isFromFavorites = !item.isFromFavorites
+                button.isFavorite = !new.isFromFavorites
+                
+                new.isFromFavorites = !new.isFromFavorites
                 
             }
         }
@@ -72,26 +67,24 @@ class NewsController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items?.count ?? 0
+        return news.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if let cell = self.tableView.dequeueReusableCellWithIdentifier("item") as? CustomItemCell {
+        if let cell = self.tableView.dequeueReusableCellWithIdentifier("New") as? NewCell {
             
-            if let string = items?[indexPath.row].imageLink, let url = NSURL(string: string) {
+            if let url = NSURL(string: news[indexPath.row].imageLink) {
                 
                 cell.cellImageView!.af_setImageWithURL(url)
                 
             }
             
-            cell.cellLabel.text = items?[indexPath.row].title ?? " "
-            cell.cellSubtitle.text = items?[indexPath.row].description ?? " "
+            cell.cellTitle.text = news[indexPath.row].title
+            cell.cellSubtitle.text = news[indexPath.row].subtitle
 
             if !isFavoritesController {
-                if let lighting = items?[indexPath.row].isFromFavorites {
-                    cell.cellButton.isFavorite = lighting
-                }
+                cell.cellButton.isFavorite = news[indexPath.row].isFromFavorites
             }
             else
             {
@@ -100,7 +93,10 @@ class NewsController: UITableViewController {
             }
 
             return cell
-        } else {
+            
+        }
+        else {
+            
             return UITableViewCell()
         }
         
@@ -114,9 +110,9 @@ class NewsController: UITableViewController {
         
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
-            Singleton.dataBase.removeFromDataBase(indexPath.row)
+            DataBase.shared.removeFromDataBase(indexPath.row)
+            news = DataBase.shared.getFromDataBase()
             
-            items = Singleton.dataBase.getFromDataBase()
             self.tableView.reloadData()
         }
         
@@ -125,7 +121,7 @@ class NewsController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if let requestUrl = NSURL(string: items?[indexPath.row].link ?? "") {
+        if let requestUrl = NSURL(string: news[indexPath.row].link) {
             UIApplication.sharedApplication().openURL(requestUrl)
         }
     }

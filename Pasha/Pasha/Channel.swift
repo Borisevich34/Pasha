@@ -7,32 +7,16 @@
 //
 
 import UIKit
-import Foundation
 
 class Channel {
     
-    var title : String
-    var imageLink : String
-    var items : [Item]!
-    var countOfItems : Int
-    
-    init () {
-        title = ""
-        imageLink = ""
-        countOfItems = 0
-    }
-    
-    func setItems (countItems : Int) {
-        items = [Item](count : countItems, repeatedValue : Item())
-        for i in 0 ..< countItems {
-            items[i] = Item()
-        }
-        countOfItems = countItems
-    }
+    var title = ""
+    var imageLink = ""
+    var news = [New]()
 
-    subscript(index: Int) -> Item {
+    subscript(index: Int) -> New {
         get {
-            return items[index]
+            return news[index]
         }
     }
     

@@ -8,17 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		9BBB78C6B00F0F39C94428F6 /* Pods_Pasha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DE8524CB7D12E460270E /* Pods_Pasha.framework */; };
-		FA3488E71D2EC9A70022467A /* CustomChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3488E61D2EC9A70022467A /* CustomChannelCell.swift */; };
+		FA3488E71D2EC9A70022467A /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3488E61D2EC9A70022467A /* ChannelCell.swift */; };
 		FA5297771D26CA53007EF866 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297761D26CA53007EF866 /* Channel.swift */; };
-		FA5297791D26CA62007EF866 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297781D26CA62007EF866 /* Item.swift */; };
-		FA7443931D3E5B3800819AF1 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7443921D3E5B3800819AF1 /* Singleton.swift */; };
-		FAA83F171D3F661900E2F98E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA83F161D3F661900E2F98E /* CustomButton.swift */; };
+		FA5297791D26CA62007EF866 /* New.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5297781D26CA62007EF866 /* New.swift */; };
+		FA7443931D3E5B3800819AF1 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7443921D3E5B3800819AF1 /* DataBase.swift */; };
+		FAA83F171D3F661900E2F98E /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA83F161D3F661900E2F98E /* FavoriteButton.swift */; };
 		FAD893051D27BEA10021F7C7 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD893041D27BEA10021F7C7 /* NewsController.swift */; };
-		FAD8930B1D281E540021F7C7 /* CustomItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8930A1D281E540021F7C7 /* CustomItemCell.swift */; };
+		FAD8930B1D281E540021F7C7 /* NewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8930A1D281E540021F7C7 /* NewCell.swift */; };
 		FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */; };
-		FAEBFA891D1FE9DA001FD524 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA881D1FE9DA001FD524 /* ViewController.swift */; };
+		FAEBFA891D1FE9DA001FD524 /* ChannelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA881D1FE9DA001FD524 /* ChannelsController.swift */; };
 		FAEBFA8C1D1FE9DA001FD524 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEBFA8A1D1FE9DA001FD524 /* Main.storyboard */; };
-		FAEBFA8F1D1FE9DA001FD524 /* Pasha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAEBFA8D1D1FE9DA001FD524 /* Pasha.xcdatamodeld */; };
 		FAEBFA911D1FE9DA001FD524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEBFA901D1FE9DA001FD524 /* Assets.xcassets */; };
 		FAEBFA941D1FE9DA001FD524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEBFA921D1FE9DA001FD524 /* LaunchScreen.storyboard */; };
 		FAFEF4CD1D33A36D000FD3FF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFEF4CC1D33A36D000FD3FF /* Media.xcassets */; };
@@ -28,18 +27,17 @@
 		4814DE8524CB7D12E460270E /* Pods_Pasha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pasha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5402109024810A3BFF386F09 /* Pods-Pasha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasha.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pasha/Pods-Pasha.release.xcconfig"; sourceTree = "<group>"; };
 		541E2FADD148BB763BEAB3EB /* Pods-Pasha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pasha/Pods-Pasha.debug.xcconfig"; sourceTree = "<group>"; };
-		FA3488E61D2EC9A70022467A /* CustomChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomChannelCell.swift; sourceTree = "<group>"; };
+		FA3488E61D2EC9A70022467A /* ChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		FA5297761D26CA53007EF866 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		FA5297781D26CA62007EF866 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		FA7443921D3E5B3800819AF1 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
-		FAA83F161D3F661900E2F98E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		FA5297781D26CA62007EF866 /* New.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = New.swift; sourceTree = "<group>"; };
+		FA7443921D3E5B3800819AF1 /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		FAA83F161D3F661900E2F98E /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		FAD893041D27BEA10021F7C7 /* NewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		FAD8930A1D281E540021F7C7 /* CustomItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomItemCell.swift; sourceTree = "<group>"; };
+		FAD8930A1D281E540021F7C7 /* NewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCell.swift; sourceTree = "<group>"; };
 		FAEBFA831D1FE9DA001FD524 /* Pasha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pasha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAEBFA881D1FE9DA001FD524 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAEBFA881D1FE9DA001FD524 /* ChannelsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsController.swift; sourceTree = "<group>"; };
 		FAEBFA8B1D1FE9DA001FD524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FAEBFA8E1D1FE9DA001FD524 /* Pasha.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pasha.xcdatamodel; sourceTree = "<group>"; };
 		FAEBFA901D1FE9DA001FD524 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAEBFA931D1FE9DA001FD524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAEBFA951D1FE9DA001FD524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,20 +95,19 @@
 			isa = PBXGroup;
 			children = (
 				FAEBFA861D1FE9DA001FD524 /* AppDelegate.swift */,
-				FAEBFA881D1FE9DA001FD524 /* ViewController.swift */,
+				FAEBFA881D1FE9DA001FD524 /* ChannelsController.swift */,
 				FAD893041D27BEA10021F7C7 /* NewsController.swift */,
-				FA3488E61D2EC9A70022467A /* CustomChannelCell.swift */,
-				FAD8930A1D281E540021F7C7 /* CustomItemCell.swift */,
-				FAA83F161D3F661900E2F98E /* CustomButton.swift */,
-				FA7443921D3E5B3800819AF1 /* Singleton.swift */,
+				FA3488E61D2EC9A70022467A /* ChannelCell.swift */,
+				FAD8930A1D281E540021F7C7 /* NewCell.swift */,
+				FAA83F161D3F661900E2F98E /* FavoriteButton.swift */,
+				FA7443921D3E5B3800819AF1 /* DataBase.swift */,
 				FA5297761D26CA53007EF866 /* Channel.swift */,
-				FA5297781D26CA62007EF866 /* Item.swift */,
+				FA5297781D26CA62007EF866 /* New.swift */,
 				FAEBFA8A1D1FE9DA001FD524 /* Main.storyboard */,
 				FAEBFA901D1FE9DA001FD524 /* Assets.xcassets */,
 				FAFEF4CC1D33A36D000FD3FF /* Media.xcassets */,
 				FAEBFA921D1FE9DA001FD524 /* LaunchScreen.storyboard */,
 				FAEBFA951D1FE9DA001FD524 /* Info.plist */,
-				FAEBFA8D1D1FE9DA001FD524 /* Pasha.xcdatamodeld */,
 			);
 			path = Pasha;
 			sourceTree = "<group>";
@@ -240,15 +237,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD893051D27BEA10021F7C7 /* NewsController.swift in Sources */,
-				FA5297791D26CA62007EF866 /* Item.swift in Sources */,
-				FAEBFA891D1FE9DA001FD524 /* ViewController.swift in Sources */,
+				FA5297791D26CA62007EF866 /* New.swift in Sources */,
+				FAEBFA891D1FE9DA001FD524 /* ChannelsController.swift in Sources */,
 				FA5297771D26CA53007EF866 /* Channel.swift in Sources */,
-				FAA83F171D3F661900E2F98E /* CustomButton.swift in Sources */,
+				FAA83F171D3F661900E2F98E /* FavoriteButton.swift in Sources */,
 				FAEBFA871D1FE9DA001FD524 /* AppDelegate.swift in Sources */,
-				FAD8930B1D281E540021F7C7 /* CustomItemCell.swift in Sources */,
-				FA7443931D3E5B3800819AF1 /* Singleton.swift in Sources */,
-				FA3488E71D2EC9A70022467A /* CustomChannelCell.swift in Sources */,
-				FAEBFA8F1D1FE9DA001FD524 /* Pasha.xcdatamodeld in Sources */,
+				FAD8930B1D281E540021F7C7 /* NewCell.swift in Sources */,
+				FA7443931D3E5B3800819AF1 /* DataBase.swift in Sources */,
+				FA3488E71D2EC9A70022467A /* ChannelCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,19 +405,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FAEBFA8D1D1FE9DA001FD524 /* Pasha.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FAEBFA8E1D1FE9DA001FD524 /* Pasha.xcdatamodel */,
-			);
-			currentVersion = FAEBFA8E1D1FE9DA001FD524 /* Pasha.xcdatamodel */;
-			path = Pasha.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FAEBFA7B1D1FE9DA001FD524 /* Project object */;
 }
