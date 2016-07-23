@@ -76,25 +76,25 @@ class DataBase {
             
             channelseController.channels = [Channel]()
             
-            for i in 0 ..< xml["rss"]["channel"].all.count {
+            let channel = xml["rss"]["channel"]
+            for i in 0 ..< channel.all.count {
                 
-                if let text = xml["rss"]["channel"][i]["title"].element?.text, imageLink = xml["rss"]["channel"][i]["image"]["url"].element?.text {
+                if let text = channel[i]["title"].element?.text, imageLink = channel[i]["image"]["url"].element?.text {
                     
                     let channel = Channel()
-                    
                     channel.title = text
                     channel.imageLink = imageLink
 
                     var news = [New]()
                     
-                    for j in 0 ..< xml["rss"]["channel"][i]["item"].all.count {
+                    for j in 0 ..< channel[i]["item"].all.count {
                         
                         let new = New()
-                        
-                        new.title = xml["rss"]["channel"][i]["item"][j]["title"].element?.text ?? " "
-                        new.subtitle = xml["rss"]["channel"][i]["item"][j]["description"].element?.text ?? " "
-                        new.link = xml["rss"]["channel"][i]["item"][j]["link"].element?.text ?? " "
-                        new.imageLink = xml["rss"]["channel"][i]["item"][j]["media:thumbnail"].element?.attributes["url"] ?? " "
+                        let item = channel[i]["item"][j]
+                        new.title = item["title"].element?.text ?? " "
+                        new.subtitle = item["description"].element?.text ?? " "
+                        new.link = item["link"].element?.text ?? " "
+                        new.imageLink = item["media:thumbnail"].element?.attributes["url"] ?? " "
                         
                         news.append(new)
                     }
