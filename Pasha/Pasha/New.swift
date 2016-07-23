@@ -6,7 +6,7 @@
 //  Copyright © 2016 MacBook. All rights reserved.
 //
 
-class New {
+class New: CustomStringConvertible {
     
     var title = ""
     var subtitle = ""
@@ -14,4 +14,7 @@ class New {
     var isFromFavorites = false
     var imageLink = ""
     
+    var description: String {
+        return "New: \(title) \n"
+    }
 }

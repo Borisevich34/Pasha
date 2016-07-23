@@ -27,7 +27,23 @@ class ChannelsController: UITableViewController {
     }
 
     func loadChannels() {
-        DataBase.shared.loadChannels(self)
+        DataBase.shared.loadChannels(channelsLoaded)
+    }
+    
+    func channelsLoaded(incomingChannels: [Channel]?) {
+        if let incomingChannels = incomingChannels {
+            channels += incomingChannels
+            tableView.reloadData()
+            if refreshingControl.refreshing {
+                refreshingControl.endRefreshing()
+            }
+            
+        } else {
+            let alertController = UIAlertController(title: "Sorry", message:
+                "Check your internet connection", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.Default){(action) in DataBase.shared.loadChannels(self.channelsLoaded)})
+            presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {

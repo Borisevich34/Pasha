@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Channel {
+class Channel: CustomStringConvertible {
     
     var title = ""
     var imageLink = ""
@@ -18,6 +18,10 @@ class Channel {
         get {
             return news[index]
         }
+    }
+    
+    var description: String {
+        return "Channel: \(title) - \(imageLink) - \(news)"
     }
     
 }

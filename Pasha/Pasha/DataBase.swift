@@ -69,17 +69,17 @@ class DataBase {
 
     }
     
-    func isRequestGood(channelseController : ChannelsController, error: NSError?, data: NSData?)-> Bool {
+    func isRequestGood(error: NSError?, data: NSData?) -> [Channel]? {
         
         if let data = data where error == nil {
             let xml = SWXMLHash.parse(data)
             
-            channelseController.channels = [Channel]()
+            var channels = [Channel]()
             
-            let channel = xml["rss"]["channel"]
-            for i in 0 ..< channel.all.count {
+            let rssChannel = xml["rss"]["channel"]
+            for i in 0 ..< rssChannel.all.count {
                 
-                if let text = channel[i]["title"].element?.text, imageLink = channel[i]["image"]["url"].element?.text {
+                if let text = rssChannel[i]["title"].element?.text, imageLink = rssChannel[i]["image"]["url"].element?.text {
                     
                     let channel = Channel()
                     channel.title = text
@@ -87,10 +87,10 @@ class DataBase {
 
                     var news = [New]()
                     
-                    for j in 0 ..< channel[i]["item"].all.count {
+                    for j in 0 ..< rssChannel[i]["item"].all.count {
                         
                         let new = New()
-                        let item = channel[i]["item"][j]
+                        let item = rssChannel[i]["item"][j]
                         new.title = item["title"].element?.text ?? " "
                         new.subtitle = item["description"].element?.text ?? " "
                         new.link = item["link"].element?.text ?? " "
@@ -100,40 +100,26 @@ class DataBase {
                     }
                     
                     channel.news = news
-                    channelseController.channels.append(channel)
+                    channels.append(channel)
                 }
                 else {
-                    return false
+                    return nil
                 }
             }
-            return true
+            return channels
         }
         else {
-            return false
+            return nil
         }
         
         
     }
     
-    func loadChannels(channelseController : ChannelsController) {
+    func loadChannels(completion: [Channel]? -> Void) {
         
         Alamofire.request(.GET, "http://feeds.bbci.co.uk/news/world/rss.xml", parameters: nil)
             .response { [unowned self] request, response, data, error in
-                if !self.isRequestGood(channelseController, error: error, data: data) {
-                    
-                    let alertController = UIAlertController(title: "Sorry", message:
-                        "Check your internet connection", preferredStyle: UIAlertControllerStyle.Alert)
-                    
-                    alertController.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.Default){(action) in DataBase.shared.loadChannels(channelseController)})
-                    
-                    channelseController.presentViewController(alertController, animated: true, completion: nil)
-                } else {
-                    channelseController.tableView.reloadData()
-                    
-                    if channelseController.refreshingControl.refreshing {
-                        channelseController.refreshingControl.endRefreshing()
-                    }
-                }
+                completion(self.isRequestGood(error, data: data))
         }
     }
     
