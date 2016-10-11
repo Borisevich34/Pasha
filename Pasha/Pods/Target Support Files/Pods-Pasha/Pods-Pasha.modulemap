@@ -1,6 +1,0 @@
-framework module Pods_Pasha {
-  umbrella header "Pods-Pasha-umbrella.h"
-
-  export *
-  module * { export * }
-}

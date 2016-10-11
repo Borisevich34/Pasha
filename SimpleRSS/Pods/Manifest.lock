@@ -1,0 +1,19 @@
+PODS:
+  - Alamofire (4.0.1)
+  - AlamofireImage (3.1.0):
+    - Alamofire (~> 4.0)
+  - SWXMLHash (3.0.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - AlamofireImage (~> 3.1)
+  - SWXMLHash (~> 3.0.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
+  SWXMLHash: e0f6935971f01b06fb228cf435510d998ecde647
+
+PODFILE CHECKSUM: 20ae3f9bbaf7e0f58b20396e2d8f91cb46d15162
+
+COCOAPODS: 1.1.0.rc.3
