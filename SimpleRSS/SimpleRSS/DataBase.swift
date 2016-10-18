@@ -3,19 +3,23 @@ import SWXMLHash
 import Alamofire
 
 class DataBase {
+
+    var titles = [String]()
     
     let story = UserDefaults.standard
-    var titles : [String]
+    
+    var alamofireManager : SessionManager?
     
     static let shared = DataBase()
     
     init () {
+
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 3
+        alamofireManager = Alamofire.SessionManager(configuration: configuration)
         
         if let storyTitles = story.stringArray(forKey: "titles") {
             titles = storyTitles
-        }
-        else {
-            titles = [String]()
         }
     }
     
@@ -63,6 +67,7 @@ class DataBase {
     }
     
     func removeFromDataBase (index : Int) {
+        
         story.removeObject(forKey: titles.remove(at: index))
         story.set(titles, forKey: "titles")
         story.synchronize()
@@ -94,7 +99,7 @@ class DataBase {
                         new.title = item["title"].element?.text ?? " "
                         new.subtitle = item["description"].element?.text ?? " "
                         new.link = item["link"].element?.text ?? " "
-                        new.imageLink = item["media:thumbnail"].element?.allAttributes["url"]?.text ?? " "  //was attributes
+                        new.imageLink = item["media:thumbnail"].element?.allAttributes["url"]?.text ?? " "
                         
                         news.append(new)
                     }
@@ -116,9 +121,11 @@ class DataBase {
     }
     
     func loadChannels(completion: @escaping ([Channel]?) -> Void) {
+        
+        alamofireManager?.request("http://feeds.bbci.co.uk/news/world/rss.xml").response { [unowned self] response in
 
-        Alamofire.request("http://feeds.bbci.co.uk/news/world/rss.xml").response { [unowned self] response in
-            completion(self.isRequestGood(error: response.error, data: response.data))
+            let param = self.isRequestGood(error: response.error, data: response.data)
+            completion(param)
         }
     }
     

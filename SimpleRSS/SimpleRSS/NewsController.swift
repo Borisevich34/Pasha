@@ -117,6 +117,14 @@ class NewsController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.5) {
+            cell.alpha = 1
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let requestUrl = URL(string: news[indexPath.row].link) {
             UIApplication.shared.open(requestUrl, options: [String : Any](), completionHandler: nil)

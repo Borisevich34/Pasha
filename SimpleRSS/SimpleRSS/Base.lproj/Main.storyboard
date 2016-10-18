@@ -11,38 +11,80 @@
         <scene sceneID="Ybg-xf-Peq">
             <objects>
                 <tableViewController id="yll-Hw-PhK" customClass="ChannelsController" customModule="SimpleRSS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" id="bjK-NU-a1U">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" id="bjK-NU-a1U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Channel" rowHeight="75" id="wsD-GF-YPR" customClass="ChannelCell" customModule="SimpleRSS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="75"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Channel" rowHeight="72" id="wsD-GF-YPR" customClass="ChannelCell" customModule="SimpleRSS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wsD-GF-YPR" id="2cz-5X-Gka">
-                                    <frame key="frameInset" width="320" height="74"/>
+                                    <frame key="frameInset" width="320" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b3J-45-we5">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="Jbx-5z-2NX"/>
-                                                <constraint firstAttribute="height" constant="45" id="wlf-Q9-VWy"/>
+                                                <constraint firstAttribute="width" constant="80" id="Jbx-5z-2NX">
+                                                    <variation key="heightClass=compact-widthClass=compact" constant="90"/>
+                                                    <variation key="heightClass=compact-widthClass=regular" constant="90"/>
+                                                </constraint>
+                                                <constraint firstAttribute="height" constant="45" id="wlf-Q9-VWy">
+                                                    <variation key="heightClass=compact-widthClass=compact" constant="50"/>
+                                                    <variation key="heightClass=compact-widthClass=regular" constant="50"/>
+                                                </constraint>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ka-js-QK3">
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="heightClass=compact-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            </variation>
+                                            <variation key="heightClass=compact-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="5Ka-js-QK3" secondAttribute="bottom" constant="13" id="I6e-6I-DT4"/>
+                                        <constraint firstItem="5Ka-js-QK3" firstAttribute="height" secondItem="b3J-45-we5" secondAttribute="height" id="FkM-Cc-dgp"/>
+                                        <constraint firstItem="5Ka-js-QK3" firstAttribute="height" secondItem="b3J-45-we5" secondAttribute="height" id="J8d-jO-AAA"/>
+                                        <constraint firstItem="5Ka-js-QK3" firstAttribute="height" secondItem="b3J-45-we5" secondAttribute="height" id="Q0M-0v-097"/>
                                         <constraint firstItem="b3J-45-we5" firstAttribute="top" secondItem="2cz-5X-Gka" secondAttribute="topMargin" id="ZCH-Gq-UOH"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="b3J-45-we5" secondAttribute="bottom" id="axi-Er-gB5"/>
                                         <constraint firstItem="5Ka-js-QK3" firstAttribute="top" secondItem="2cz-5X-Gka" secondAttribute="topMargin" id="dZY-K5-U9u"/>
                                         <constraint firstItem="5Ka-js-QK3" firstAttribute="leading" secondItem="b3J-45-we5" secondAttribute="trailing" constant="8" id="mc7-g1-L0i"/>
                                         <constraint firstItem="b3J-45-we5" firstAttribute="leading" secondItem="2cz-5X-Gka" secondAttribute="leadingMargin" id="qcS-an-u5U"/>
                                         <constraint firstItem="5Ka-js-QK3" firstAttribute="trailing" secondItem="2cz-5X-Gka" secondAttribute="trailingMargin" id="tcg-jo-kLd"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="FkM-Cc-dgp"/>
+                                            <exclude reference="J8d-jO-AAA"/>
+                                            <exclude reference="Q0M-0v-097"/>
+                                            <exclude reference="axi-Er-gB5"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=compact-widthClass=compact">
+                                        <mask key="constraints">
+                                            <include reference="J8d-jO-AAA"/>
+                                            <exclude reference="axi-Er-gB5"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=compact-widthClass=regular">
+                                        <mask key="constraints">
+                                            <include reference="FkM-Cc-dgp"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="constraints">
+                                            <include reference="Q0M-0v-097"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellImageView" destination="b3J-45-we5" id="dje-cW-TYq"/>
@@ -59,15 +101,16 @@
                     <navigationItem key="navigationItem" title="Channels" id="Q0t-p6-epr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Twu-7B-3B6">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
-                        <outlet property="refreshingControl" destination="Twu-7B-3B6" id="l06-Q5-KQ9"/>
+                        <outlet property="refreshingControl" destination="Twu-7B-3B6" id="Vvh-Mf-7QG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qp-1Q-kMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="-24"/>
+            <point key="canvasLocation" x="2276.0869565217395" y="-27.536231884057973"/>
         </scene>
         <!--News-->
         <scene sceneID="81y-Iw-SmF">
@@ -179,6 +222,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kRE-zG-enP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3rJ-IP-tbU">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>

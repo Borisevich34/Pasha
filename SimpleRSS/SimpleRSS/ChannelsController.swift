@@ -27,13 +27,16 @@ class ChannelsController: UITableViewController {
     }
 
     func loadChannels() {
+        
         DataBase.shared.loadChannels(completion: channelsLoaded)
     }
     
     func channelsLoaded(incomingChannels: [Channel]?) {
         if let incomingChannels = incomingChannels {
+            channels.removeAll() //!!!!!
             channels += incomingChannels
             tableView.reloadData()
+            
             if refreshingControl.isRefreshing {
                 refreshingControl.endRefreshing()
             }
